@@ -4,8 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-28</title>
+    <style>
+        body{
+            background-color: #119797;
+            background-image: linear-gradient(160deg, #2c696d 0%, #0e9281 100%);
+            min-height:1000vh;
+            font-family: sans-serif;
+        }
+         .card-container{
+               display: flex;
+               flex-direction: column;
+               width: 40%;
+               height:40% ;
+               margin: 30px auto;
+               justify-content: center;
+               align-items: center;
+               border: 2px solid gray;
+               padding: 20px;
+               border-radius: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px 2px grey;
+
+         }
+         .card-container img{
+            width: 60%;
+            margin: 10px auto;
+           
+            
+         }
+         .card-container p{
+            font-size: 20px;
+         }
+
+         .card-container button{
+            padding: 5px 10px;
+            border-radius: 30px;
+            border: none;
+            font-size: 20px;
+            background-color: #119797;
+            background-image: linear-gradient(160deg, #2c696d 0%, #0e9281 100%);
+            color: white;
+
+         }
+         .qty-inc-dec{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 10px;
+            
+
+         }  
+         .qty-inc-dec img {
+            height: 40px;
+            width: 40px;
+            margin: 0 7px;
+         }
+         #number{
+            font-size: 25px;
+            font-weight: 900;
+         }
+         @media screen and (max-width:768px){
+            .qty-inc-dec img {
+                height: 35px;
+                width: 35px;
+                margin: 0 4px;
+            }
+            h2{
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="card-container">
+        <img src="airpods.jpg" alt="">
+        <h2>BoAt Airdopes</h2>
+        <p>Price: $359.99</p>
+
+        <div class="qty-inc-dec">
+            <img src="minus.png" onclick="dec()">
+            <span id="number">1</span>
+            <img src="plus.png"  onclick="inc()">
+        </div>
+
+        <button type="submit" onclick="buy()">Buy Now!</button>
+        
+    </div>
+    <script>
+       function inc(){
+        const quantity=document.getElementById('number');
+        let qty=parseInt(quantity.innerText);
+        if(quantity.innerText<10){
+            quantity.innerText=++qty;
+        }
+        else{
+            alert("Exceed the Limit. You can't add more quantity.")
+        }
+       }
+       function dec(){
+        const quantity=document.getElementById('number');
+        let qty=parseInt(quantity.innerText);
+        if(quantity.innerText>1){
+            quantity.innerText=--qty;
+            
+        }
+        else{
+            alert("Can't select less than 1.")
+        }
+       }
+    </script>
 </body>
 </html>
